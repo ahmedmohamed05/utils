@@ -100,7 +100,7 @@ template <std::size_t N>
 std::array<std::string, N> randomKeys(short terms = 4, short termLength = 4,
                                       bool useSmallLetters = false) {
   std::array<std::string, N> keys = {};
-  for (std::size_t i = 1; i <= numberOfKeys; i++) {
+  for (std::size_t i = 1; i <= N; i++) {
     keys[i - 1] = randomKey(terms, termLength, useSmallLetters);
   }
   return keys;

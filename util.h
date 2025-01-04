@@ -100,7 +100,7 @@ template <std::size_t N>
 std::array<std::string, N> randomKeys(short terms = 4, short termLength = 4,
                                       bool useSmallLetters = false) {
   std::array<std::string, N> keys = {};
-  for (std::size_t i = 1; i <= N; i++) {
+  for (int i = 1; i <= numberOfKeys; i++) {
     keys[i - 1] = randomKey(terms, termLength, useSmallLetters);
   }
   return keys;
@@ -183,6 +183,12 @@ template <typename T> void shuffle(std::vector<int> &v) {
   int size = v.size();
   for (int i = 0; i < size; i++) {
     swap<T>(v[randomNumber(1, size) - 1], v[randomNumber(1, size) - 1]);
+  }
+}
+template <typename T, std::size_t N> void shuffle(std::array<T, N> &arr) {
+  int size = arr.size();
+  for (int i = 0; i < size; i++) {
+    swap<T>(arr[randomNumber(1, size) - 1], arr[randomNumber(1, size) - 1]);
   }
 }
 
